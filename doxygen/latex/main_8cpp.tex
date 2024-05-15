@@ -1,0 +1,115 @@
+\doxysection{/home/jp/opiskelu/advanced\+\_\+cpp/loppuprojekti/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{/home/jp/opiskelu/advanced\_cpp/loppuprojekti/main.cpp@{/home/jp/opiskelu/advanced\_cpp/loppuprojekti/main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$mqtt/async\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include "{}serialib.\+h"{}}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classcallback}{callback}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_ac08f8f916661bb5fc606373bea93d274}{SERIAL\+\_\+\+PORT}}~"{}/dev/tty\+ACM0"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{main_8cpp_afbfbaebc867f4bb5d58d3e27dc06ecdd}{SERVER\+\_\+\+ADDRESS}} ("{}mqtt\+://localhost\+:1883"{})
+\item 
+const std\+::string \mbox{\hyperlink{main_8cpp_a767bbd1a74f4c15590482fd7f274bb40}{CLIENT\+\_\+\+ID}} ("{}paho\+\_\+cpp\+\_\+async\+\_\+subcribe"{})
+\item 
+const std\+::string \mbox{\hyperlink{main_8cpp_afddad821225b973d3abee73c7bf5bdf2}{TOPIC}} ("{}test"{})
+\item 
+void \mbox{\hyperlink{main_8cpp_aba4151d6febec1ad877c6fa87eb4d455}{send\+\_\+command}} (std\+::string command)
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{main_8cpp_ad0eb02ec78b0fdd1d1c23f775049edd3}{QOS}} = 1
+\item 
+const int \mbox{\hyperlink{main_8cpp_a8eeb924a7c76ce59ce916d40408638d9}{N\+\_\+\+RETRY\+\_\+\+ATTEMPTS}} = 5
+\item 
+std\+::mutex \mbox{\hyperlink{main_8cpp_a1be3f7fa26e4521098de5f1ec0f865f3}{mutex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8cpp_ac08f8f916661bb5fc606373bea93d274}\label{main_8cpp_ac08f8f916661bb5fc606373bea93d274} 
+\index{main.cpp@{main.cpp}!SERIAL\_PORT@{SERIAL\_PORT}}
+\index{SERIAL\_PORT@{SERIAL\_PORT}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SERIAL\_PORT}{SERIAL\_PORT}}
+{\footnotesize\ttfamily \#define SERIAL\+\_\+\+PORT~"{}/dev/tty\+ACM0"{}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a767bbd1a74f4c15590482fd7f274bb40}\label{main_8cpp_a767bbd1a74f4c15590482fd7f274bb40} 
+\index{main.cpp@{main.cpp}!CLIENT\_ID@{CLIENT\_ID}}
+\index{CLIENT\_ID@{CLIENT\_ID}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CLIENT\_ID()}{CLIENT\_ID()}}
+{\footnotesize\ttfamily const std\+::string CLIENT\+\_\+\+ID (\begin{DoxyParamCaption}\item[{"{}paho\+\_\+cpp\+\_\+async\+\_\+subcribe"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_aba4151d6febec1ad877c6fa87eb4d455}\label{main_8cpp_aba4151d6febec1ad877c6fa87eb4d455} 
+\index{main.cpp@{main.cpp}!send\_command@{send\_command}}
+\index{send\_command@{send\_command}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{send\_command()}{send\_command()}}
+{\footnotesize\ttfamily void send\+\_\+command (\begin{DoxyParamCaption}\item[{std\+::string}]{command }\end{DoxyParamCaption})}
+
+Send command to microcontroller using serial ports. 
+\begin{DoxyParams}{Parameters}
+{\em command} & Only commands "{}0"{} and "{}1"{} are sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Function does not return anything. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_afbfbaebc867f4bb5d58d3e27dc06ecdd}\label{main_8cpp_afbfbaebc867f4bb5d58d3e27dc06ecdd} 
+\index{main.cpp@{main.cpp}!SERVER\_ADDRESS@{SERVER\_ADDRESS}}
+\index{SERVER\_ADDRESS@{SERVER\_ADDRESS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SERVER\_ADDRESS()}{SERVER\_ADDRESS()}}
+{\footnotesize\ttfamily const std\+::string SERVER\+\_\+\+ADDRESS (\begin{DoxyParamCaption}\item[{"{}mqtt\+://localhost\+:1883"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_afddad821225b973d3abee73c7bf5bdf2}\label{main_8cpp_afddad821225b973d3abee73c7bf5bdf2} 
+\index{main.cpp@{main.cpp}!TOPIC@{TOPIC}}
+\index{TOPIC@{TOPIC}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{TOPIC()}{TOPIC()}}
+{\footnotesize\ttfamily const std\+::string TOPIC (\begin{DoxyParamCaption}\item[{"{}test"{}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_a1be3f7fa26e4521098de5f1ec0f865f3}\label{main_8cpp_a1be3f7fa26e4521098de5f1ec0f865f3} 
+\index{main.cpp@{main.cpp}!mutex@{mutex}}
+\index{mutex@{mutex}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mutex}{mutex}}
+{\footnotesize\ttfamily std\+::mutex mutex}
+
+\Hypertarget{main_8cpp_a8eeb924a7c76ce59ce916d40408638d9}\label{main_8cpp_a8eeb924a7c76ce59ce916d40408638d9} 
+\index{main.cpp@{main.cpp}!N\_RETRY\_ATTEMPTS@{N\_RETRY\_ATTEMPTS}}
+\index{N\_RETRY\_ATTEMPTS@{N\_RETRY\_ATTEMPTS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{N\_RETRY\_ATTEMPTS}{N\_RETRY\_ATTEMPTS}}
+{\footnotesize\ttfamily const int N\+\_\+\+RETRY\+\_\+\+ATTEMPTS = 5}
+
+\Hypertarget{main_8cpp_ad0eb02ec78b0fdd1d1c23f775049edd3}\label{main_8cpp_ad0eb02ec78b0fdd1d1c23f775049edd3} 
+\index{main.cpp@{main.cpp}!QOS@{QOS}}
+\index{QOS@{QOS}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{QOS}{QOS}}
+{\footnotesize\ttfamily const int QOS = 1}
+
